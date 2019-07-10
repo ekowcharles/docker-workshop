@@ -6,7 +6,7 @@ Goals: Familiarize team with writing Dockerfile by hand
 
 Team should perform the following exercise in pairs.
 
-Using a node image:
+Using a node image, create a Dockerfile containing the following instructions:
 
 1. Add metadata `version` with value `0.0.1` to the image
 1. Create a directory `/app` and make it the working directory.
