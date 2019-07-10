@@ -20,3 +20,5 @@ Using a node image, create a Dockerfile containing the following instructions:
 Each Docker intruction or set of Docker instructions for each of the numbered steps above should be preceeded by a blank line.
 
 Each team should present their solution.
+
+NOTE: Do not discard the Dockerfile, we shall build on it in subsequent excercises.
