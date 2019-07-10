@@ -59,7 +59,7 @@ If you installed Docker using the Docker binary follow the steps below:
 
 1. Run `docker version` to check that you have the latest release installed.
 
-   ```sh
+   ```
    $ docker version
    Client: Docker Engine - Community
    Version:           18.09.2
@@ -83,7 +83,7 @@ If you installed Docker using the Docker binary follow the steps below:
 
 2. Run `docker run hello-world` to verify that Docker is pulling images and running as expected.
 
-   ```sh
+   ```
    $ docker run hello-world
    Unable to find image 'hello-world:latest' locally
    latest: Pulling from library/hello-world
