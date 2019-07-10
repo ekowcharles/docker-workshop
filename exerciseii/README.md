@@ -1,35 +1,22 @@
-# Exercise II - Base Images
+# Exercise III
 
-Goals:
+Goals: Familiarize team with writing Dockerfile by hand
 
-- Understand various parts of the Dockerhub search page
-- Understand how to peruse images
+## Write Dockerfile by hand
 
-When choosing a base image for your docker image ask yourself the following questions:
+Team should perform the following exercise in pairs.
 
-1. Is it Docker certified?
-2. Is the publisher verified?
-3. Is it an official image?
-4. How many times has the image been downloaded?
-5. When was the last time the image was updated?
+Using a node image:
 
-This helps to establish how much trust you have for the image you are importing.
+1. Add metadata `version` with value `0.0.1` to the image
+1. Create a directory `/app` and make it the working directory.
+1. Add all files ending with `.js` to the `/app` directory.
+1. Exclude the `node_modules` folder, `package-lock.json` and `README.md` files from being copied over into the resulting image.
+1. Move the favicon [here](https://docs.docker.com/favicons/docs@2x.ico) into the `/app/public/images` folder as `favicon.ico`.
+1. Install all npm packages.
+1. Map port 8000 in the container to 8999 on the host.
+1. Execute the command `node index.js`.
 
-Visit the [dockerhub search page](https://hub.docker.com/search?q=&type=image).
+Each Docker intruction or set of Docker instructions for each of the numbered steps above should be preceeded by a blank line.
 
-## Some popular base images
-
-- [PostgreSQL](https://hub.docker.com/search?q=postgres&type=image)
-- [Node](https://hub.docker.com/search?q=node&type=image)
-- [Java](https://hub.docker.com/search?q=java&type=image)
-- [MySQL](https://hub.docker.com/search?q=mysql&type=image)
-
-NOTE: Not all repositories are publicly available. There are some official images you need to pay for.
-
-## Game
-
-Trace the base images for the following images:
-
-- [nginx-modsecurity](https://hub.docker.com/r/nodeintegration/nginx-modsecurity)
-- [jetty](https://hub.docker.com/_/jetty) for Java 11
-- [nodecg](https://hub.docker.com/r/nodecg/nodecg)
+Each team should present their solution.

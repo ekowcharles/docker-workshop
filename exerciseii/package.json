@@ -1,0 +1,19 @@
+{
+  "name": "exerciseiii",
+  "version": "1.0.0",
+  "description": "Docker Exercise III",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "docker",
+    "workshop"
+  ],
+  "author": "C A Boadu Jr",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "serve-favicon": "^2.5.0"
+  }
+}
