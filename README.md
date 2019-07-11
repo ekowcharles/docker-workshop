@@ -1,10 +1,18 @@
 # Docker Workshop Material
 
-# Assumptions
+## Assumptions
 
 - All participants use a MacBook
 
-# License
+## Contents
+
+- [Exercise I](https://github.com/ekowcharles/docker-workshop/tree/master/exercisei) - Setup Docker
+- [Exercise II](https://github.com/ekowcharles/docker-workshop/tree/master/exerciseii) - Work with Dokerfile
+- [Exercise III](https://github.com/ekowcharles/docker-workshop/tree/master/exerciseiii) - Research Additional Dockerfile Instructions
+- [Exercise IV](https://github.com/ekowcharles/docker-workshop/tree/master/exerciseiv) - Work with Base Images
+- [Exercise V](https://github.com/ekowcharles/docker-workshop/tree/master/exercisev) - Docker Commands
+
+## License
 
 MIT License
 
