@@ -1,6 +1,6 @@
 # Exercise V
 
-Goals: Try out most used docker commands.
+Goals: Gain has-on experience by trying out most used docker commands.
 
 ## Docker commands
 
@@ -56,12 +56,23 @@ Notice how your image now appears in the list.
 
 What happens when the Dockerfile is renamed to something else? How does that affect the build command.
 
+### docker stop
+
+To stop running `workshop:two` list runinng containers and extract the value in the `CONTAINER ID` column. Use the obtained container ID in the following command:
+
+```
+$ docker stop <container-id>
+```
+
+Confirm that the container is indeed stopped. The container should not be shown in the list of running containers.
+
 ### docker run
 
 Runs a command in a new container.
 
 ```
-$ docker run -p 8999 workshop:one
+$ docker run -p 8999:8000 workshop:one
+Dockerizable app listening to connections!
 ```
 
 Now click [here](http://localhost:8999) to launch app in your browser. :tada:
@@ -71,103 +82,94 @@ Complete the following tasks:
 1. Modify the codebase to extract web port from an environment variable `PORT`
 1. Modify the Dockerfile to accept and `PORT` environment variable.
 
-#### docker run with `--build-args`
+#### docker build with `--build-arg`
 
 Run the following:
 
 ```
-$ docker build --build-args PORT=9898 -t workshop:two .
-$ docker run -p 9898 workshop:two
+$ docker build --build-arg PORT=9898 -t workshop:two .
+$ docker run -p 6767:9898 workshop:two
 ```
 
-Now click [here](http://localhost:9898) to launch app in your browser.
+Now click [here](http://localhost:6767) to launch app in your browser.
 
 #### docker run with `--env`
 
 Run the following to override the `PORT` variable when the container is running.
 
 ```
-$ docker run --env PORT=4567 -p 4567 workshop:two
+$ docker run --env PORT=4567 -p 7089:4567 workshop:two
 ```
 
-Now click [here](http://localhost:4567) to launch app in your browser.
+Now click [here](http://localhost:7089) to launch app in your browser.
 
-### docker push
+### docker exec
 
-This is how you push images to docker repositories which in our case is Dockerhub.
+`docker exec` allows you to ssh into the docker container and peruse it. This command can only by applied on running containers.
+
+Extract the container ID of your running `workshop:two` container then run the following:
+
+```
+$ docker exec -it <container-id> /bin/sh
+```
+
+Now flex your linux fu.
+
+### docker tag, docker push
+
+`docker push` is how you push images to docker repositories so it is accessible to others. However, we cannot push our image as is. This is because images pushed to Dockerhub should have the format: `<registry>/<image-name>[:tag]`
+
+What we have so far has the format `<image-name>:tag`. `docker tag` is how you create different versions of the same image. So lets create a version of the image that is in a format Docker would allow us to push.
+
+```
+$ docker tag workshop:two <registry>/workshop:two
+```
+
+Confirm there is a duplicate image created.
 
 Lets push our newly created image to Dockerhub and make it accessible to others.
 
 ```
-$ docker push workshop:two
+$ docker push <registry>/workshop:two
+The push refers to repository [docker.io/<registry>/workshop]
+0c9fdd626ea3: Pushed
+2f9e3c60eabe: Pushed
+8107d5ec2199: Pushed
+74dc30c263e2: Pushed
+d9f099a5f4d8: Pushed
+a98b0fa351c4: Pushed
+f1b5933fe4b5: Pushed
+two: digest: sha256:6219c9c94dc5ecd14b44a38fa9b62092f826172feeae8d2db837abfeda0f962a size: 1782
 ```
 
-### docker stop
-
-To stop running `workshop:two` container, run the following:
-
-```
-$ docker ps
-```
-
-Extract the value in the `CONTAINER ID` column and use it in the following command:
-
-```
-$ docker stop <container-id>
-```
-
-Run the `docker ps` command to confirm that the container is indeed stopped. The container should not be shown in the list of running containers.
+Now visit https://cloud.docker.com/u/<registry>/repository/docker/<registry>/workshop and modify the page to make it complete.
 
 ### docker rmi, docker rm
 
-`docker rmi` removes an image.
+`docker rmi` untags an image.
 
-Execute the following:
-
-```
-$ docker rmi workshop:two
-```
-
-This should fail with an error that looks likes so:
+List all images and then execute the following:
 
 ```
-Error response from daemon: conflict: unable to remove repository reference "workshop:two" (must force) - container <container-id> is using its referenced image <image-id>
+$ docker rmi <registry>/workshop:two
 ```
 
-We see that while `docker stop` stops the container, it does not necessarily mean the container does not exist. To show that the container still exists even though it is stop run the following command:
-
-```
-$ docker ps -a
-```
-
-:tada:
-
-Run
+Run the following to remove a container:
 
 ```
 $ docker rm <container-id>
 ```
-
-to remove the container completely.
-
-Now that the container has been completely removed, we can go ahead and delete the `workshop:two` image:
-
-```
-$ docker rmi workshop:two
-```
-
-Check the list of images to confirm it is indeed gone!
 
 ### docker pull
 
 Exchange Dockerhub IDs amongst yourselves and run the following:
 
 ```
-$ docker pull <dockerhub-id>/workshop:two
-$ docker run --env PORT=4567 -p 4567 workshop:two
+$ docker pull <registry>/workshop:two
+$ docker run --env PORT=4567 -p 8888:4567 workshop:two
 ```
 
-Click [here](http://localhost:4567) to launch app in your browser.
+Click [here](http://localhost:8888) to launch app in your browser.
 
 ### docker inspect
 
