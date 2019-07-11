@@ -1,5 +1,7 @@
 # Docker Workshop Material
 
+This material is to be used by participants of the Docker workshop. It serves to introduce the basic concepts of containerization with Docker.
+
 ## Assumptions
 
 - All participants use a MacBook
