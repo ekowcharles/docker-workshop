@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Docker Exercise III",
   "main": "index.js",
+  "repository": ".",
   "scripts": {
     "test": "test"
   },
