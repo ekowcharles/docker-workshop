@@ -142,7 +142,7 @@ f1b5933fe4b5: Pushed
 two: digest: sha256:6219c9c94dc5ecd14b44a38fa9b62092f826172feeae8d2db837abfeda0f962a size: 1782
 ```
 
-Now visit https://cloud.docker.com/u/<registry>/repository/docker/<registry>/workshop and modify the page to make it complete.
+Now visit https://cloud.docker.com/u/{registry}/repository/docker/{registry}/workshop and modify the page to make it complete.
 
 ### docker rmi, docker rm
 
