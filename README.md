@@ -9,7 +9,7 @@ This material is to be used by participants of the Docker workshop. It serves to
 ## Contents
 
 - [Exercise I](https://github.com/ekowcharles/docker-workshop/tree/master/exercisei) - Setup Docker
-- [Exercise II](https://github.com/ekowcharles/docker-workshop/tree/master/exerciseii) - Work with Dokerfile
+- [Exercise II](https://github.com/ekowcharles/docker-workshop/tree/master/exerciseii) - Work with Dockerfile
 - [Exercise III](https://github.com/ekowcharles/docker-workshop/tree/master/exerciseiii) - Research Additional Dockerfile Instructions
 - [Exercise IV](https://github.com/ekowcharles/docker-workshop/tree/master/exerciseiv) - Work with Base Images
 - [Exercise V](https://github.com/ekowcharles/docker-workshop/tree/master/exercisev) - Docker Commands
