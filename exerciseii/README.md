@@ -1,4 +1,4 @@
-# Exercise III
+# Exercise II
 
 Goals: Familiarize team with writing Dockerfile by hand
 
